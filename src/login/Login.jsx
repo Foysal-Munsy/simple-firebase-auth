@@ -29,6 +29,13 @@ const Login = () => {
         console.log(error);
       });
   };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+  };
   return (
     <div>
       <h2>Please Login</h2>
@@ -46,6 +53,23 @@ const Login = () => {
           <img src={user.photoURL} alt="" />
         </div>
       )}
+
+      <br />
+      <br />
+      {/* Form */}
+
+      <form onSubmit={handleRegister}>
+        <input type="email" name="email" placeholder="mail@site.com" required />
+        <br />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <br />
+        <button className="btn">Submit</button>
+      </form>
     </div>
   );
 };
